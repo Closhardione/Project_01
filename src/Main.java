@@ -9,6 +9,7 @@ public class Main {
     Segment segOut(Segment segment, Point point){
         double dist = segment.getDistance();
 
+
         return segment;
     }
 }
