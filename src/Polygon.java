@@ -1,28 +1,46 @@
 import java.util.Locale;
 
 public class Polygon {
-    private Point points[];
+    private Point arr[];
     private int size;
+    private Style style;
     public Polygon(int n){
         this.size = n;
-        points = new Point[this.size];
+        arr = new Point[this.size];
         for(int i =0;i<this.size;i++){
-            points[i]=new Point(0,0);
+            arr[i]=new Point(0,0);
         }
     }
     public void setPoint(int index,Point point){
         if(index<=(this.size-1)){
-            points[index]=point;
+            arr[index]=point;
         }
     }
     public void setTable(Point points[],int size) {
-        this.points = new Point[size];
+        this.arr = new Point[size];
         for (int i = 0; i < size; i++) {
-            this.points[i] = points[i];
+            this.arr[i] = points[i];
         }
     }
-    public String toSvg(int index1,int index2){return String.format(Locale.ENGLISH,"<line x1=\"%f\" y1=\"%f\" x2=\"%f\",y2=\"%f\"/>",this.points[index1].x,this.points[index1].y,this.points[index2].x,this.points[index2].y);}
+    public String toSvg() {
+        String pointsString = "";
+        for(Point point : arr)
+            pointsString += point.x + "," + point.y + " ";
 
-    //points = new Point[2];
+        return String.format(Locale.ENGLISH,"<polygon points=\"%s\" style=\"%s\" />", pointsString,this.style.toSvg());
+    }
+    public Point getMaxCords(){
+        Point maxPoint = new Point(0,0);
+        for(Point p:this.arr){
+            if(p.x>maxPoint.x){
+                maxPoint.x=p.x;
+            }
+            if(p.y>maxPoint.y){
+                maxPoint.y=p.y;
+            }
+        }
+        return maxPoint;
+    }
+
 }
 
