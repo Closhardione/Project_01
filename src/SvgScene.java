@@ -1,32 +1,30 @@
 import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class SvgScene {
-    private ArrayList<Polygon> polygons=new ArrayList<Polygon>();
-    private int height=0,width=0;
-    public void addPolygon(Polygon polygon){
-        this.polygons.add(polygon);
-        Point maxPoint = polygon.getMaxCords();
-        height =(int)Math.max(this.height,maxPoint.y);
-        width=(int)Math.max(this.width,maxPoint.x);
+    private List<Shape> shapes = new ArrayList<>();
+    public void add(Shape polygon){
+        shapes.add(polygon);
     }
-    public void save(String file){
+    public void saveHtml(String path){
         try {
-
-            // attach a file to FileWriter
-            FileWriter fileWriter = new FileWriter(file);
-            String str = "<html>\n"+"<body>";
-            str+="<svg width=\""+width+"\" height=\""+height+"\">";
-            for(Polygon pol:this.polygons){
-                str+=pol.toSvg();
+            FileWriter fw = new FileWriter(path);
+            fw.write("<html> <body> <svg width=\"1000\" height=\"1000\">\n");
+            for(var polygon : shapes){
+                fw.write(polygon.toSvg()+"\n");
             }
-            str+="</svg>\n" + "\n" + "</body>\n" + "</html>";
-            fileWriter.write(str);
-
-            fileWriter.close();
-        }
-        catch (Exception e) {
-            e.getStackTrace();
+            fw.write("</svg>\n" +
+                    "\n" +
+                    "</body>\n" +
+                    "</html>");
+//            for(int i =0;i<shapes.size();++i){
+//                shapes.get(i);
+//            }
+            fw.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 }
