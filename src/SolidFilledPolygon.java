@@ -4,8 +4,8 @@ public class SolidFilledPolygon extends Polygon{
         super(points);
         this.color=color;
     }
-    public String toSvg(String color){
-        String fill = "fill=\""+color+"\"";
+    public String toSvg(String parameters){
+        String fill = "fill=\""+this.color+"\""+parameters;
         return super.toSvg(fill);
     }
 }
