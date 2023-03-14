@@ -14,9 +14,15 @@ public class Main {
         ellipse = new SolidFilledShapeDecorator(ellipse,"blue");
         ellipse = new StrokeShapeDecorator(ellipse, "green", 24);
 
+        new TransformationDecorator
+                .Builder()
+                .setTranslate(new Vec2(2,3))
+                .setTranslate(new Vec2(4,5))
+                .build(poly);
 
-//        SvgScene scene=new SvgScene();
-//        scene.addShape(poly);
-//        scene.saveHtml("scene.html");
+        SvgScene scene=new SvgScene();
+        scene.addShape(poly);
+        scene.addShape(ellipse);
+        scene.saveHtml("scene.html");
     }
 }
