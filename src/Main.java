@@ -12,6 +12,7 @@ public class Main {
         Shape ellipse = new Ellipse(new Vec2(2,3),10,20);
         poly = new SolidFilledShapeDecorator(poly,"red");
         ellipse = new SolidFilledShapeDecorator(ellipse,"blue");
+        ellipse = new StrokeShapeDecorator(ellipse, "green", 24);
 
 
 //        SvgScene scene=new SvgScene();
