@@ -1,4 +1,5 @@
 
+import java.awt.datatransfer.StringSelection;
 import java.util.Locale;
 
 public class Polygon implements Shape {
@@ -8,11 +9,11 @@ public class Polygon implements Shape {
         this.points = points;
     }
 
-    public String toSvg() {
+    public String toSvg(String str) {
         String pointsString = "";
         for(Vec2 point : points)
             pointsString += point.x + "," + point.y + " ";
 
-        return String.format(Locale.ENGLISH,"<polygon points=\"%s\" />", pointsString);
+        return String.format(Locale.ENGLISH,"<polygon points=\"%s\" %s />", pointsString,str);
     }
 }

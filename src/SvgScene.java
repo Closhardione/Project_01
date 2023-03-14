@@ -1,4 +1,3 @@
-package com.company;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -18,7 +17,7 @@ public class SvgScene {
             file.write("<html>\n<body>\n");
             file.write(String.format("<svg width=1000 height=1000>\n"));
             for(Shape shape : shapes)
-                file.write("\t"+ shape.toSvg()+"\n");
+                file.write("\t"+ shape.toSvg("")+"\n");
             file.write("</svg>\n</body>\n</html>\n");
             file.close();
 
