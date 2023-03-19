@@ -20,9 +20,9 @@ public class Main {
                 .setTranslate(new Vec2(4,5))
                 .build(poly);
 
-        SvgScene scene=new SvgScene();
-        scene.addShape(poly);
-        scene.addShape(ellipse);
-        scene.saveHtml("scene.html");
+//        SvgScene scene=new SvgScene();
+//        scene.addShape(poly);
+//        scene.addShape(ellipse);
+//        scene.saveHtml("scene.html");
     }
 }
