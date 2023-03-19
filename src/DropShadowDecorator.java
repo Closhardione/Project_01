@@ -5,7 +5,7 @@ public class DropShadowDecorator extends ShapeDecorator{
         super(decoratedShape);
         this.shadow = shadow;
     }
-
+    //idk
     public String toSvg(String string){
         return null;
     }

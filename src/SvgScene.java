@@ -6,7 +6,7 @@ import java.util.Arrays;
 public class SvgScene {
     private Shape[] shapes = new Shape[0];
     private static SvgScene instance=null;
-
+    //elo
     private String[] defs= new String[0];
 
     public SvgScene getInstance(SvgScene instance){

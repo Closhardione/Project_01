@@ -41,7 +41,7 @@ public class TransformationDecorator extends ShapeDecorator {
             translate=true;
             return this;
         }
-
+    // siema
         public Builder setRotate( double rotateAngle, Vec2 rotateCenter) {
             this.rotate = true;
             this.rotateAngle = rotateAngle;
